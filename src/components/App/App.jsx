@@ -2,7 +2,6 @@ import './App.css';
 import Header from '../Header/Header';
 import { Routes, Route, useLocation } from "react-router-dom";
 import CatsCardList from '../CatsCardList/CatsCardList';
-import SavedCats from '../SavedCats/SavedCats';
 
 function App() {
 
