@@ -7,10 +7,6 @@ const CatsCardList = () => {
   const [savedCats, setSavedCats] = useState([]);
   const [catImages, setCatImages] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [likes, setLikes] = useState(() => {
-    const savedLikes = JSON.parse(localStorage.getItem('likes'));
-    return savedLikes || {};
-  });
 
   const { pathname } = useLocation();
 
@@ -32,7 +28,6 @@ const CatsCardList = () => {
         const data = await response.json();
         setCatImages(data);
         localStorage.setItem('catImages', JSON.stringify(data));
-        setLikes(Object.fromEntries(data.map(cat => [cat.id, false])));
       }
     } catch (error) {
       console.error('Error fetching cat images:', error);
@@ -41,38 +36,36 @@ const CatsCardList = () => {
     }
   };
 
-  const handleSaveCat = (id) => {
-    // Обновляем состояние лайка для конкретной карточки
-    setLikes(prevLikes => ({
-      ...prevLikes,
-      [id]: !prevLikes[id]
-    }));
-    localStorage.setItem('likes', JSON.stringify({
-      ...likes,
-      [id]: !likes[id]
-    }));
-
-    handleSave(catImages.find(cat => cat.id === id));
-  }
+  const handleSaveMovie = (catId) => {
+    const catToSave = catImages.find(cat => cat.id === catId);
+    handleSave(catToSave);
+  };
 
   function handleDeleteCat(id) {
-    const updatedCats = savedCats.filter((cat) => cat.catId !==  id);
+    const updatedCats = savedCats.filter((cat) => cat.id !== id);
     setSavedCats(updatedCats);
     localStorage.setItem('savedCats', JSON.stringify(updatedCats));
   }
 
-  function handleSave(cat) {
+  const handleSave = (cat) => {
     const savedCatsFromStorage = JSON.parse(localStorage.getItem('savedCats')) || [];
-  
     const isSaved = savedCatsFromStorage.some((element) => cat.id === element.catId);
+    
+    let updatedCats;
     if (!isSaved) {
-      const updatedCats = [{ catId: cat.id, ...cat }, ...savedCatsFromStorage];
-      localStorage.setItem('savedCats', JSON.stringify(updatedCats));
+      updatedCats = [{ catId: cat.id, ...cat }, ...savedCatsFromStorage];
     } else {
-      const updatedCats = savedCatsFromStorage.filter((element) => element.catId !== cat.id);
-      localStorage.setItem('savedCats', JSON.stringify(updatedCats));
+      updatedCats = savedCatsFromStorage.filter((element) => element.catId !== cat.id);
     }
-  }
+    
+    localStorage.setItem('savedCats', JSON.stringify(updatedCats));
+    setSavedCats(updatedCats); 
+  };
+
+  function isSaved(catId) {
+    const savedCatsFromStorage = JSON.parse(localStorage.getItem('savedCats')) || [];
+    return savedCatsFromStorage.some((element) => catId === element.catId);
+  }  
 
   useEffect(() => {
     const savedCatsFromStorage = JSON.parse(localStorage.getItem('savedCats')) || [];
@@ -86,14 +79,14 @@ const CatsCardList = () => {
       (pathname === '/' && catImages.length !== 0) ?
       catImages.map(cat => (
         <div className="cat-card" key={cat.id}>
-          <img src={cat.url} alt="Cat"/>
-          <button className={likes[cat.id] ? "heart-btn heart-btn_active" : "heart-btn"} onClick={() => handleSaveCat(cat.id)}></button>
+          <img  src={cat.url} alt="Cat"/>
+          <button className={!isSaved(cat.id) ? "heart-btn" : "heart-btn heart-btn_active"} onClick={() => handleSaveMovie(cat.id)}></button>
         </div>
       )) :  (pathname === '/saved-cats' && savedCats.length !== 0) ?
       savedCats.map(cat => (
         <div className="cat-card"  key={cat.catId}>
-          <img src={cat.url} alt="Cat"/>
-          <button className="heart-btn heart-btn_active" onClick={() => handleDeleteCat(cat.catId)}></button>
+          <img  src={cat.url} alt="Cat"/>
+          <button  className="heart-btn heart-btn_active" onClick={() => handleDeleteCat(cat.id)}></button>
         </div>
       )) : 
       <p className='gallery__serch-error'>Нет сохранённых котиков</p>
