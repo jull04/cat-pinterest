@@ -5,6 +5,7 @@ import CardList from '../CardList/CardList';
 
 import { useEffect, useState } from 'react'
 import Swiperr from '../Swiper/Swiper';
+import CatImagePage from '../CatImagePage/CatImagePage';
 
 function App() {
 
@@ -54,6 +55,7 @@ function App() {
             loading = {loading}
           />
         }/>
+        <Route path="/cat/:id" element={<CatImagePage catImages = {catImages}/>} /> 
       </Routes>
     </div>
   );
