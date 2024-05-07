@@ -45,6 +45,7 @@ function App() {
         <Route path='/' element={
           <Swiperr
             catImages = {catImages}
+            loading = {loading}
           />
         }/>
         <Route path='/all-cats' element={
