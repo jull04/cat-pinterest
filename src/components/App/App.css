@@ -1,0 +1,35 @@
+.page {
+  min-width: 320px;
+  max-width: 1440px;
+  margin: 0 auto;
+  font-family: "Roboto", Arial, sans-serif;
+  background-color: #FFFFFF;
+  color: #FFFFFF;
+  box-sizing: border-box;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+
+.button {
+  background-color: #1e88e5;
+  border: none;
+  color: white;
+  padding: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  margin: 0 auto;
+  align-items: center;
+  text-decoration: none;
+}
+
+.button:hover {
+  opacity: 0.5;
+}

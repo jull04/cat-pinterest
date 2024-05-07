@@ -1,0 +1,28 @@
+.cat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 225px);
+  grid-gap: 40px;
+  margin: 60px;
+  justify-content: center;
+}
+
+.cat-card {
+  width: 225px;
+  height: 225px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.cat-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery__serch-error {
+  color: #2196f3; 
+  font-weight: 400;
+  font-size: 20px;
+  width: 300px;
+}
