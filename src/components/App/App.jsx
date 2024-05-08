@@ -39,7 +39,7 @@ function App() {
     <div className="page">
       <Header/>
       <Routes>
-        <Route path='/guild-test' element={
+        <Route path='/guild-test/' element={
           <Swiperr
             catImages = {catImages}
             loading = {loading}
