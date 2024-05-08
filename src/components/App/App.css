@@ -2,8 +2,8 @@
   min-width: 320px;
   margin: 0 auto;
   font-family: "Roboto", Arial, sans-serif;
-  background-color: #FFFFFF;
-  color: #FFFFFF;
+  background-color: #ffffff;
+  color: #ffffff;
   box-sizing: border-box;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
@@ -13,7 +13,7 @@
 .container {
   display: flex;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
 }
 
 .button {

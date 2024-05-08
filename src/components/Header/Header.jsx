@@ -1,5 +1,5 @@
-import './Header.css';
-import { Link, useLocation } from 'react-router-dom';
+import "./Header.css";
+import { Link, useLocation } from "react-router-dom";
 
 function Header() {
 
@@ -9,12 +9,14 @@ function Header() {
     <header className="header">
       <div className='header__container'>
           <Link 
-            to={'/guild-test/'} 
-            className={pathname === '/guild-test/' ? 'header__cats header__active' : 'header__cats'}>Main page
+            to={"/guild-test/"} 
+            className={pathname === "/guild-test/" ? "header__cats header__active" : "header__cats"}>
+              Main page
           </Link>
           <Link 
-            to={'/all-cats'} 
-            className={pathname === '/all-cats' ? 'header__cats header__active' : 'header__cats'}>All cats
+            to={"/all-cats"} 
+            className={pathname === "/all-cats" ? "header__cats header__active" : "header__cats"}>
+              All cats
           </Link>
         </div>  
     </header>

@@ -3,8 +3,9 @@ import Preloader from "../Preloader/Preloader";
 import { Link } from "react-router-dom";
 
 const CardList = ({ catImages, loading }) => {
-
-  const filteredCats = catImages.filter(cat => cat.breeds && cat.breeds.length > 0);
+  const filteredCats = catImages.filter(
+    (cat) => cat.breeds && cat.breeds.length > 0
+  );
 
   return (
     <section>
