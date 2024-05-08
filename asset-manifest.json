@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/guild-test/static/css/main.8d69f265.css",
+    "main.css": "/guild-test/static/css/main.2df36ff7.css",
     "main.js": "/guild-test/static/js/main.75d0e3af.js",
     "index.html": "/guild-test/index.html",
-    "main.8d69f265.css.map": "/guild-test/static/css/main.8d69f265.css.map",
+    "main.2df36ff7.css.map": "/guild-test/static/css/main.2df36ff7.css.map",
     "main.75d0e3af.js.map": "/guild-test/static/js/main.75d0e3af.js.map"
   },
   "entrypoints": [
-    "static/css/main.8d69f265.css",
+    "static/css/main.2df36ff7.css",
     "static/js/main.75d0e3af.js"
   ]
 }
