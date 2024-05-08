@@ -1,11 +1,22 @@
 .cat-page {
-  margin: 0 auto;
+  margin: 70px auto;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.cat-info {
+.cat-card {
+  margin: 10px auto;
+}
+.cat-info-page {
+  color: #1e88e5;
+  text-decoration: none;
+  width: 40%;
+  margin: 10px auto;
+  text-align: center;
+}
+
+.cat-link {
   color: #1e88e5;
   text-decoration: none;
 }
