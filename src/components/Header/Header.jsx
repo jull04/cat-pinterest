@@ -9,8 +9,8 @@ function Header() {
     <header className="header">
       <div className='header__container'>
           <Link 
-            to={'/'} 
-            className={pathname === '/' ? 'header__cats header__active' : 'header__cats'}>Main page
+            to={'/guild-test'} 
+            className={pathname === '/guild-test' ? 'header__cats header__active' : 'header__cats'}>Main page
           </Link>
           <Link 
             to={'/all-cats'} 

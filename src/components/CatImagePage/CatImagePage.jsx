@@ -14,12 +14,13 @@ function CatImagePage ({ catImages }) {
         <div className="cat-card">
           <img src={cat.url} alt="Cat" />
         </div>
-        <p className="cat-info-page">Name: {cat.breeds[0].alt_names}</p>
         <p className="cat-info-page">Breed: {cat.breeds[0].name}</p>
         <p className="cat-info-page">Temperament: {cat.breeds[0].temperament}</p>
         <p className="cat-info-page">Description: {cat.breeds[0].description}</p>
-        <p className="cat-info-page">Info link: <a className="cat-link" target="_blank" href={cat.breeds[0].vcahospitals_url}>{cat.breeds[0].vcahospitals_url}</a></p>
-    </section>
+        {cat.breeds[0].vcahospitals_url && (
+        <p className="cat-info-page">Info link: <a className="cat-link" target="_blank" rel="noreferrer" href={cat.breeds[0].vcahospitals_url}>{cat.breeds[0].vcahospitals_url}</a></p>
+        )}
+        </section>
   );
 };
 

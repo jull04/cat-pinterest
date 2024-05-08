@@ -7,7 +7,7 @@ import Preloader from "../Preloader/Preloader";
 import "swiper/css";
 import "swiper/css/navigation";
 
-function Swiperr({ catImages, loading, catInfo }) {
+function Swiperr({ catImages, loading }) {
 
   const filteredCats = catImages.filter(cat => cat.categories && cat.categories.length > 0);
 
