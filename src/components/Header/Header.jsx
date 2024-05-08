@@ -10,11 +10,11 @@ function Header() {
       <div className='header__container'>
           <Link 
             to={'/'} 
-            className={pathname === '/' ? 'header__cats header__active' : 'header__cats'}>Главная страница
+            className={pathname === '/' ? 'header__cats header__active' : 'header__cats'}>Main page
           </Link>
           <Link 
             to={'/all-cats'} 
-            className={pathname === '/all-cats' ? 'header__cats header__active' : 'header__cats'}>Все котики
+            className={pathname === '/all-cats' ? 'header__cats header__active' : 'header__cats'}>All cats
           </Link>
         </div>  
     </header>

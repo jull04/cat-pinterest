@@ -26,3 +26,16 @@
   font-size: 20px;
   width: 300px;
 }
+
+.cat-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #1e88e5;
+  text-decoration: none;
+}
+
+.button {
+  padding: 10px;
+  margin: auto;
+}
