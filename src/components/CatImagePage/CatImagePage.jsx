@@ -1,4 +1,6 @@
 import { useParams } from 'react-router-dom';
+import "./CatImagePage.css";
+
 
 function CatImagePage ({ catImages }) {
   // Извлекаем параметр 'id' из URL
@@ -8,16 +10,14 @@ function CatImagePage ({ catImages }) {
   const cat = catImages.find(cat => cat.id === id);
 
   return (
-    <div>
+    <section className="cat-page">
       <h2>Cat Image</h2>
-      {cat ? (
         <div className="cat-card">
           <img src={cat.url} alt="Cat" />
         </div>
-      ) : (
-        <p>Карточка не найдена</p>
-      )}
-    </div>
+       <p className="cat-info">Полная информация о котике</p>
+      
+    </section>
   );
 };
 

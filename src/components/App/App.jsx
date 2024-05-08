@@ -10,10 +10,11 @@ import CatImagePage from '../CatImagePage/CatImagePage';
 function App() {
 
   const [catImages, setCatImages] = useState([]);
+  const [catBreeds, setCatBreeds] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    // Проверяем, есть ли уже данные в состоянии компонента
+    // Проверяем, есть ли данные в состоянии компонента
     if (catImages.length === 0) {
       fetchCatImages();
     }
@@ -37,7 +38,6 @@ function App() {
       setLoading(false);
     }
   };
-
 
   return (
     <div className="page">

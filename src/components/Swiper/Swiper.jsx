@@ -20,6 +20,7 @@ function Swiperr({catImages, loading}) {
               <div>
                 <img src={cat.url} alt={`Котик ${cat.id}`} />
               </div>
+            <p>Информация о котике</p>
             </SwiperSlide>
           ))}
         </Swiper>
