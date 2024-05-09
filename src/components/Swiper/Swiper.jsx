@@ -18,7 +18,7 @@ function Swiperr({ filteredCats, isLoading }) {
             {filteredCats.map((cat) => (
               <SwiperSlide key={cat.id}>
                 <div>
-                  <img src={cat.url} alt={`Котик ${cat.id}`} />
+                  <img src={cat.url} alt={`Котик ${cat.id}`} className="cat-card"/>
                 </div>
                   <p>
                     Breed: {cat.breeds[0].name}
