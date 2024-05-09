@@ -10,7 +10,7 @@ function Header() {
       <div className='header__container'>
           <Link 
             to={"/cat-pinterest/"} 
-            className={pathname === "/guild-test/" ? "header__cats header__active" : "header__cats"}>
+            className={pathname === "/cat-pinterest/" ? "header__cats header__active" : "header__cats"}>
               Main page
           </Link>
           <Link 
