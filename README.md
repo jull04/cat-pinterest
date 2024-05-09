@@ -1,3 +1,3 @@
 # Guild test task
 
-Link: https://jull04.github.io/guild-test/
+Link: https://jull04.github.io/cat-pinterest/
