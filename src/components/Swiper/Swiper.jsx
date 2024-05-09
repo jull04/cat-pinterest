@@ -6,10 +6,7 @@ import Preloader from "../Preloader/Preloader";
 import "swiper/css";
 import "swiper/css/navigation";
 
-function Swiperr({ catImages, isLoading }) {
-  const filteredCats = catImages.filter(
-    (cat) => cat.categories && cat.categories.length > 0
-  );
+function Swiperr({ filteredCats, isLoading }) {
 
   return (
     <section>
@@ -23,12 +20,9 @@ function Swiperr({ catImages, isLoading }) {
                 <div>
                   <img src={cat.url} alt={`Котик ${cat.id}`} />
                 </div>
-                {cat.categories && cat.categories.length > 0 && (
                   <p>
-                    {cat.categories[0].name.charAt(0).toUpperCase() +
-                      cat.categories[0].name.slice(1)}
+                    Breed: {cat.breeds[0].name}
                   </p>
-                )}
               </SwiperSlide>
             ))}
           </Swiper>

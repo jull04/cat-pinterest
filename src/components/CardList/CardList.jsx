@@ -2,10 +2,7 @@ import "./CardList.css";
 import Preloader from "../Preloader/Preloader";
 import { Link } from "react-router-dom";
 
-const CardList = ({ catImages, isLoading }) => {
-  const filteredCats = catImages.filter(
-    (cat) => cat.breeds && cat.breeds.length > 0
-  );
+const CardList = ({ filteredCats, isLoading }) => {
 
   return (
     <section>

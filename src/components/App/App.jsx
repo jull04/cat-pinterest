@@ -23,6 +23,10 @@ function App() {
     }
   }, [isLoading, error, catImages]);
 
+  const filteredCats = catImages.filter(
+    (cat) => cat.breeds && cat.breeds.length > 0 
+  );
+
 
   return (
     <div className="page">
@@ -30,12 +34,11 @@ function App() {
       <Routes>
         <Route
           path="/guild-test/"
-          element={<Swiperr catImages={catImages} isLoading={isLoading} />}
+          element={<Swiperr filteredCats={filteredCats} isLoading={isLoading} />}
         />
-        "
         <Route
           path="/all-cats"
-          element={<CardList catImages={catImages} isLoading={isLoading} />}
+          element={<CardList filteredCats={filteredCats} isLoading={isLoading} />}
         />
         <Route
           path="/cat/:id"
