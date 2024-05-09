@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/guild-test/static/css/main.043c45da.css",
-    "main.js": "/guild-test/static/js/main.31f6f355.js",
-    "index.html": "/guild-test/index.html",
-    "main.043c45da.css.map": "/guild-test/static/css/main.043c45da.css.map",
-    "main.31f6f355.js.map": "/guild-test/static/js/main.31f6f355.js.map"
+    "main.css": "/cat-pinterest/static/css/main.043c45da.css",
+    "main.js": "/cat-pinterest/static/js/main.31f6f355.js",
+    "index.html": "/cat-pinterest/index.html",
+    "main.043c45da.css.map": "/cat-pinterest/static/css/main.043c45da.css.map",
+    "main.31f6f355.js.map": "/cat-pinterest/static/js/main.31f6f355.js.map"
   },
   "entrypoints": [
     "static/css/main.043c45da.css",
