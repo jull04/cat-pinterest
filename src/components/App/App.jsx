@@ -33,7 +33,7 @@ function App() {
       <Header />
       <Routes>
         <Route
-          path="/guild-test/"
+          path="/cat-pinterest/"
           element={<Swiperr filteredCats={filteredCats} isLoading={isLoading} />}
         />
         <Route

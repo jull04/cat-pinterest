@@ -9,7 +9,7 @@ function Header() {
     <header className="header">
       <div className='header__container'>
           <Link 
-            to={"/guild-test/"} 
+            to={"/cat-pinterest/"} 
             className={pathname === "/guild-test/" ? "header__cats header__active" : "header__cats"}>
               Main page
           </Link>
