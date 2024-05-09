@@ -2,7 +2,7 @@ import "./CardList.css";
 import Preloader from "../Preloader/Preloader";
 import { Link } from "react-router-dom";
 
-const CardList = ({ catImages, loading }) => {
+const CardList = ({ catImages, isLoading }) => {
   const filteredCats = catImages.filter(
     (cat) => cat.breeds && cat.breeds.length > 0
   );
@@ -10,7 +10,7 @@ const CardList = ({ catImages, loading }) => {
   return (
     <section>
       <div className="cat-grid">
-        {loading ? (
+        {isLoading ? (
           <Preloader />
         ) : (
           filteredCats.map((cat) => (

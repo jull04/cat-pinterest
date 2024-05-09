@@ -3,17 +3,17 @@ import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import Preloader from "../Preloader/Preloader";
-
 import "swiper/css";
 import "swiper/css/navigation";
 
-function Swiperr({ catImages, loading }) {
-
-  const filteredCats = catImages.filter(cat => cat.categories && cat.categories.length > 0);
+function Swiperr({ catImages, isLoading }) {
+  const filteredCats = catImages.filter(
+    (cat) => cat.categories && cat.categories.length > 0
+  );
 
   return (
     <section>
-      {loading ? (
+      {isLoading ? (
         <Preloader />
       ) : (
         <div>
@@ -24,8 +24,10 @@ function Swiperr({ catImages, loading }) {
                   <img src={cat.url} alt={`Котик ${cat.id}`} />
                 </div>
                 {cat.categories && cat.categories.length > 0 && (
-                  <p>{cat.categories[0].name.charAt(0).toUpperCase() + cat.categories[0].name.slice(1)}</p>
-
+                  <p>
+                    {cat.categories[0].name.charAt(0).toUpperCase() +
+                      cat.categories[0].name.slice(1)}
+                  </p>
                 )}
               </SwiperSlide>
             ))}

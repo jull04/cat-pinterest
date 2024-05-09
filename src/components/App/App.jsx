@@ -3,38 +3,26 @@ import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import CardList from "../CardList/CardList";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Swiperr from "../Swiper/Swiper";
 import CatImagePage from "../CatImagePage/CatImagePage";
+import { useFetchCatImagesQuery } from "../../utils/api";
 
 function App() {
-  const [catImages, setCatImages] = useState([]);
-  const [loading, setLoading] = useState(false);
+
+  const { data: catImages = [], error, isLoading } = useFetchCatImagesQuery();
 
   useEffect(() => {
-    fetchCatImages();
-  }, []);
-
-  const fetchCatImages = async () => {
-    try {
-      setLoading(true);
-      const savedCatImages = JSON.parse(localStorage.getItem("catImages"));
-      if (savedCatImages) {
-        setCatImages(savedCatImages);
-      } else {
-        const response = await fetch(
-          "https://api.thecatapi.com/v1/images/search?limit=300&api_key=live_8VHZC6qqrZx16wU609ocvPSn0JZTcz3s0MQn1JK6fbeaQw7oy30jNYH6iRlFkmWD"
-        );
-        const data = await response.json();
-        setCatImages(data);
-        localStorage.setItem("catImages", JSON.stringify(data));
+    if (!isLoading && !error && catImages.length > 0) {
+      // Проверяем, есть ли уже данные в локальном хранилище
+      const storedCatImages = JSON.parse(localStorage.getItem('catImages'));
+      if (!storedCatImages) {
+        // Если данных в локальном хранилище нет, сохраняем полученные данные
+        localStorage.setItem('catImages', JSON.stringify(catImages));
       }
-    } catch (error) {
-      console.error("Error fetching cat images:", error);
-    } finally {
-      setLoading(false);
     }
-  };
+  }, [isLoading, error, catImages]);
+
 
   return (
     <div className="page">
@@ -42,12 +30,12 @@ function App() {
       <Routes>
         <Route
           path="/guild-test/"
-          element={<Swiperr catImages={catImages} loading={loading} />}
+          element={<Swiperr catImages={catImages} isLoading={isLoading} />}
         />
         "
         <Route
           path="/all-cats"
-          element={<CardList catImages={catImages} loading={loading} />}
+          element={<CardList catImages={catImages} isLoading={isLoading} />}
         />
         <Route
           path="/cat/:id"
