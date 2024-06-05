@@ -1,8 +1,14 @@
 import "./CardList.css";
 import Preloader from "../Preloader/Preloader";
 import { Link } from "react-router-dom";
+import { CatImage } from "../../utils/types";
 
-const CardList = ({ filteredCats, isLoading }) => {
+type CardListProps = {
+  filteredCats: CatImage[];
+  isLoading: boolean;
+};
+
+function CardList ({ filteredCats, isLoading }: CardListProps) {
 
   return (
     <section>
