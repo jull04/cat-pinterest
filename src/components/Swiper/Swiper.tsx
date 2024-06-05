@@ -5,8 +5,14 @@ import { Navigation } from "swiper/modules";
 import Preloader from "../Preloader/Preloader";
 import "swiper/css";
 import "swiper/css/navigation";
+import { CatImage } from "../../utils/types";
 
-function Swiperr({ filteredCats, isLoading }) {
+type SwiperrProps = {
+  filteredCats: CatImage[];
+  isLoading: boolean;
+};
+
+function Swiperr({ filteredCats, isLoading }: SwiperrProps) {
 
   return (
     <section>

@@ -1,9 +1,14 @@
 import { useParams } from "react-router-dom";
 import "./CatImagePage.css";
+import { CatImage } from "../../utils/types";
 
-function CatImagePage({ catImages }) {
+type CatImagePageProps = {
+  catImages: CatImage[];
+};
+
+function CatImagePage({ catImages }: CatImagePageProps) {
   // Извлекаем параметр 'id' из URL
-  const { id } = useParams();
+  const { id } = useParams<{ id: string }>();
 
   const goBack = () => {
     window.history.back();
@@ -11,6 +16,10 @@ function CatImagePage({ catImages }) {
 
   // Находим карточку по идентификатору
   const cat = catImages.find((cat) => cat.id === id);
+
+  if (!cat) {
+    return <div>Cat not found</div>;
+  }
 
   return (
     <section className="cat-page">
